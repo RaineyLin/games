@@ -1,0 +1,46 @@
+{
+  "worker_ant": {
+    "name": "工蟻",
+    "label": "工",
+    "role": "collector",
+    "hp": 24,
+    "speed": 60,
+    "radius": 8,
+    "oilReward": 2,
+    "scoreReward": 10,
+    "canDamageBuildings": false,
+    "buildingDamagePerSecond": 0,
+    "color": [38, 38, 38],
+    "upgrade": {
+      "enabled": false,
+      "maxLevel": 1,
+      "statScaling": {
+        "hp": 1.0,
+        "speed": 1.0,
+        "buildingDamagePerSecond": 1.0
+      }
+    }
+  },
+  "soldier_ant": {
+    "name": "兵蟻",
+    "label": "兵",
+    "role": "siege",
+    "hp": 360,
+    "speed": 34,
+    "radius": 18,
+    "oilReward": 0,
+    "scoreReward": 0,
+    "canDamageBuildings": true,
+    "buildingDamagePerSecond": 44,
+    "color": [120, 42, 32],
+    "upgrade": {
+      "enabled": false,
+      "maxLevel": 1,
+      "statScaling": {
+        "hp": 1.0,
+        "speed": 1.0,
+        "buildingDamagePerSecond": 1.0
+      }
+    }
+  }
+}

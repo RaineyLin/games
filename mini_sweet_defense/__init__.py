@@ -1,0 +1,1 @@
+"""Mini Sweet Defense prototype."""

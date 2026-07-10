@@ -1,0 +1,47 @@
+{
+  "name": "兵蟻試煉",
+  "initialResources": {
+    "oil": 145
+  },
+  "wavePrepOilBonus": 30,
+  "entries": [
+    { "id": "left_top", "x": 0, "y": 145 },
+    { "id": "right_mid", "x": 999, "y": 420 }
+  ],
+  "exits": [
+    { "id": "left_exit", "x": 0, "y": 560 },
+    { "id": "right_exit", "x": 999, "y": 100 }
+  ],
+  "sweets": [
+    { "id": "sugar_c", "type": "sugar_pile", "x": 455, "y": 210 },
+    { "id": "candy_c", "type": "hard_candy", "x": 590, "y": 410 }
+  ],
+  "soldierDestructionGoals": {
+    "soldier_ant": 2
+  },
+  "waves": [
+    {
+      "name": "第一波",
+      "duration": 30,
+      "spawns": [
+        { "entryId": "left_top", "antType": "worker_ant", "count": 18, "interval": 1.0 },
+        { "entryId": "left_top", "antType": "soldier_ant", "count": 1, "interval": 7.0 }
+      ]
+    },
+    {
+      "name": "第二波",
+      "duration": 42,
+      "spawns": [
+        { "entryId": "left_top", "antType": "worker_ant", "count": 18, "interval": 0.85 },
+        { "entryId": "right_mid", "antType": "worker_ant", "count": 18, "interval": 0.95 },
+        { "entryId": "right_mid", "antType": "soldier_ant", "count": 1, "interval": 8.0 }
+      ]
+    }
+  ],
+  "failConditions": {
+    "maxSweetUnitsLost": 5
+  },
+  "scoring": {
+    "sweetUnitBonus": 25
+  }
+}

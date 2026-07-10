@@ -1,0 +1,31 @@
+{
+  "basic_turret": {
+    "name": "基礎砲塔",
+    "label": "砲",
+    "cost": {
+      "oil": 25
+    },
+    "radius": 18,
+    "hp": 95,
+    "destructible": true,
+    "blocksMovement": true,
+    "color": [68, 120, 190],
+    "upgrade": {
+      "enabled": false,
+      "maxLevel": 1,
+      "statScaling": {
+        "range": 1.0,
+        "damage": 1.0,
+        "shotsPerSecond": 1.0
+      }
+    },
+    "attack": {
+      "type": "single",
+      "range": 150,
+      "damage": 10,
+      "shotsPerSecond": 1.25,
+      "projectileSpeed": 430,
+      "targetPriority": "nearest"
+    }
+  }
+}
