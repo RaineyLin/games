@@ -1,15 +1,177 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>迷你甜食防禦軍</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainey’s Games</title>
+  <meta name="description" content="Rainey 的瀏覽器小遊戲合集" />
+  <link rel="icon" href="Dark_chess/index.icon.png" />
+  <style>
+    :root {
+      --bg: #140e0c;
+      --bg2: #1c1310;
+      --panel: #2a1a12;
+      --border: #c9a050;
+      --text: #f0e2c4;
+      --muted: #a89478;
+      --accent: #e8b84a;
+      --red: #c82020;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 20%, rgba(120, 30, 20, 0.35), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0 0;
+      color: var(--border);
+      opacity: 0.7;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      height: 1px;
+      width: min(120px, 20vw);
+      background: currentColor;
+    }
+    .list {
+      display: grid;
+      gap: 20px;
+    }
+    .card {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 22px;
+      background: var(--panel);
+      border: 2px solid rgba(201, 160, 80, 0.55);
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    }
+    .thumb {
+      width: 140px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #1a100c;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+    }
+    .meta h2 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+      color: var(--accent);
+    }
+    .meta p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(200, 32, 32, 0.15);
+      color: #f0a0a0;
+      border: 1px solid rgba(200, 32, 32, 0.35);
+    }
+    .play {
+      white-space: nowrap;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #5a3820, #3a2214);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .card:hover .play {
+      background: linear-gradient(180deg, #6e4628, #4a2c18);
+    }
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .thumb {
+        width: 100%;
+        height: 140px;
+        margin: 0 auto;
+      }
+      .play { justify-self: center; }
+    }
+  </style>
 </head>
 <body>
-  <main class="game-shell">
-    <canvas id="game" width="1000" height="720" aria-label="迷你甜食防禦軍"></canvas>
-  </main>
-  <script src="game.js"></script>
+  <div class="wrap">
+    <header>
+      <h1>GAMES</h1>
+      <p class="sub">Rainey 的瀏覽器小遊戲</p>
+      <div class="ornament">◆</div>
+    </header>
+
+    <section class="list" aria-label="遊戲清單">
+      <a class="card" href="Dark_chess/">
+        <img class="thumb" src="Dark_chess/index.png" alt="暗棋預覽" width="140" height="100" />
+        <div class="meta">
+          <h2>暗棋 Dark Chess</h2>
+          <p>中國半棋盤暗棋。雙人對戰或挑戰電腦，含翻棋、走子與吃子動畫。</p>
+          <span class="badge">v1.0 · Godot Web</span>
+        </div>
+        <span class="play">開始遊玩 →</span>
+      </a>
+    </section>
+
+    <footer>
+      <p>Hosted on GitHub Pages · <a href="https://github.com/RaineyLin/games" style="color:var(--border)">RaineyLin/games</a></p>
+    </footer>
+  </div>
 </body>
 </html>
